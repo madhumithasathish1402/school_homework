@@ -1,0 +1,146 @@
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f6fb;
+    color: #263238;
+    line-height: 1.6;
+}
+
+/* Navigation bar */
+nav {
+    background: #243b55;
+    padding: 16px 25px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffd166;
+}
+
+.nav-form {
+    margin: 0;
+}
+
+/* Main content */
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 20px;
+}
+
+/* Cards */
+.card {
+    background: white;
+    padding: 22px;
+    margin: 20px 0;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5eaf0;
+}
+
+.card h2,
+.card h3 {
+    color: #243b55;
+    margin-top: 0;
+}
+
+/* Forms */
+form {
+    margin: 18px 0;
+}
+
+label {
+    display: block;
+    margin-top: 14px;
+    font-weight: bold;
+}
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 12px;
+    margin: 7px 0;
+    box-sizing: border-box;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
+    font-size: 15px;
+    background: white;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #2864c5;
+    box-shadow: 0 0 0 3px rgba(40, 100, 197, 0.12);
+}
+
+/* Buttons */
+button,
+.button {
+    display: inline-block;
+    background: #2864c5;
+    color: white;
+    padding: 11px 18px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background 0.3s;
+}
+
+button:hover,
+.button:hover {
+    background: #1d4f9c;
+}
+
+/* Success message */
+.message {
+    background: #e2f5e8;
+    color: #176534;
+    padding: 14px;
+    border-radius: 7px;
+    border-left: 4px solid #28a745;
+    margin: 15px 0;
+}
+
+/* Small text */
+small {
+    color: #667085;
+}
+
+/* Links */
+a {
+    transition: color 0.2s;
+}
+
+/* Mobile responsive design */
+@media (max-width: 600px) {
+    nav {
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .container {
+        margin: 15px auto;
+        padding: 12px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+}

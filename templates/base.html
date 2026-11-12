@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Homework System</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+    <nav>
+        <a href="{% url 'home' %}">Home</a>
+
+        {% if user.is_authenticated %}
+            <a href="{% url 'teacher_dashboard' %}">Teacher</a>
+            <a href="{% url 'student_dashboard' %}">Student</a>
+            <a href="{% url 'notifications' %}">Notifications</a>
+
+            <form action="{% url 'logout' %}" method="post" class="nav-form">
+                {% csrf_token %}
+                <button type="submit">Logout</button>
+            </form>
+        {% else %}
+            <a href="{% url 'register' %}">Register</a>
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+    </nav>
+
+    <main class="container">
+        {% if messages %}
+            {% for message in messages %}
+                <p class="message">{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+
+        {% block content %}
+            <h1>School Homework Management System</h1>
+            <p>Teachers can send homework and students can submit their work.</p>
+        {% endblock %}
+    </main>
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Student Dashboard</h2>
+<h3>Available Homework</h3>
+
+{% for homework in homework_list %}
+<div class="card">
+    <h3>{{ homework.title }}</h3>
+    <p>Subject: {{ homework.subject }}</p>
+    <p>{{ homework.description }}</p>
+    <p>Teacher: {{ homework.teacher.username }}</p>
+    <p>Due date: {{ homework.due_date|default:"Not set" }}</p>
+
+    {% if homework.id in submitted_ids %}
+        <p>Submitted</p>
+        <a href="{% url 'submit_homework' homework.id %}">
+            Upload again
+        </a>
+    {% else %}
+        <a class="button" href="{% url 'submit_homework' homework.id %}">
+            Submit Homework
+        </a>
+    {% endif %}
+</div>
+{% empty %}
+<p>No homework available.</p>
+{% endfor %}
+{% endblock %}

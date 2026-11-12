@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Submit Homework</h2>
+
+<h3>{{ homework.title }}</h3>
+<p>{{ homework.description }}</p>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload Homework</button>
+</form>
+{% endblock %}

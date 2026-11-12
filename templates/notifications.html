@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Notifications</h2>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Mark All as Read</button>
+</form>
+
+{% for notification in notification_list %}
+<div class="card">
+    <p>{{ notification.message }}</p>
+    <small>{{ notification.created_at }}</small>
+
+    {% if not notification.is_read %}
+        <strong>New</strong>
+    {% endif %}
+</div>
+{% empty %}
+<p>No notifications yet.</p>
+{% endfor %}
+{% endblock %}
